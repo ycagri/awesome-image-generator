@@ -1,0 +1,9 @@
+{
+  "appName": "Imagify",
+  "welcome": "Imagify'a Hoşgeldiniz",
+  "fillTheInput": "Resim üretmek için aşağıdaki alanları doldurunuz",
+  "labelHint": "Lütfen resim için bir etiket girin",
+  "descriptionHint": "Lütfen resim için bir tanım girin",
+  "generate": "Oluştur",
+  "generateAnother": "Başka Oluştur"
+}
