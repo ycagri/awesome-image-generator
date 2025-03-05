@@ -1,0 +1,9 @@
+{
+  "appName": "Imagify",
+  "welcome": "Welcome to Imagify",
+  "fillTheInput": "Please fill the below fields to generate image",
+  "labelHint": "Please provide a label for the image",
+  "descriptionHint": "Please provide a description for the image",
+  "generate": "Generate",
+  "generateAnother": "Generate Another"
+}
