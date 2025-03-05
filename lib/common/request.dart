@@ -32,7 +32,11 @@ class RequestHandler {
 
   Future<String> post(String path, Map<String, String> data) =>
       IOClient(_client)
-          .post(Uri.parse('$baseUrl/$path'), body: jsonEncode(data))
+          .post(
+            Uri.parse('$baseUrl/$path'),
+            body: jsonEncode(data),
+            headers: headers,
+          )
           .timeout(timeout)
           .then((response) {
             if (response.statusCode == 200) {
@@ -43,9 +47,9 @@ class RequestHandler {
           });
 
   Future<String> generateImage(String label, String description) {
-    final requestUuid = Uuid();
+    final requestUuid = Uuid().v4();
     final path =
-        "/var/www/cerebrumscanner.com/data/uploads/dreamer/DreamLabel/${requestUuid.toString()}";
+        "/var/www/cerebrumscanner.com/data/uploads/dreamer/DreamLabel/$requestUuid";
     final body = {
       "workflow": "DreamLabel",
       "description": description,
@@ -57,15 +61,15 @@ class RequestHandler {
       "textMarginY": "100",
       "nsfwThresholdValue": "0.95",
       "promptStyle": "base",
-      "uid": requestUuid.toString(),
+      "uid": requestUuid,
       "outputComfyPath": path,
     };
     return post('test/server', body).then((response) {
       if (jsonDecode(response)['outputComfyPath'] == path) {
         return Future.delayed(
-          Duration(seconds: 10),
+          Duration(seconds: 20),
           () =>
-              'https://cerebrumscanner.com/data/uploads/dreamer/DreamLabel/${requestUuid.toString()}/output_image.png',
+              'https://cerebrumscanner.com/data/uploads/dreamer/DreamLabel/$requestUuid/output_image.png',
         );
       }
       throw Exception('An error occurred!');

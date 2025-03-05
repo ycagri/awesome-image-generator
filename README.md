@@ -3,7 +3,7 @@
 This is a simple AI based image generation application. It consists of two pages:
 
 1. Home Page: In the home page, there are two text inputs for the label and the description. One can not generate image without providing a label and a description.
-2. Result Page: After providing a label and a description, the user can generate an image which approximately takes 10 seconds. Output image is displayed in the Result Page.
+2. Result Page: After providing a label and a description, the user can generate an image which approximately takes 20 seconds. Output image is displayed in the Result Page.
 
 ## How to Run the Application?
 Clone the repository and then:
